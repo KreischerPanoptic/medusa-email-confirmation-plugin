@@ -1,0 +1,66 @@
+{
+   "name": "medusa-email-confirmation-plugin",
+   "version": "0.0.2",
+   "description": "medusa-email-confirmation-plugin is a Medusa plugin that adds obligatory requirement for customers to confirm their email used for sign up to Medusa ecommerce stores.",
+   "repository": {
+      "type": "git",
+      "url": "https://github.com/KreischerPanoptic/medusa-email-confirmation-plugin"
+   },
+   "homepage:": "https://github.com/KreischerPanoptic/medusa-email-confirmation-plugin",
+   "author": "Dennis Soroka",
+   "license": "MIT",
+   "keywords": [
+      "typescript",
+      "ecommerce",
+      "headless",
+      "medusa",
+      "medusa-plugin",
+      "medusa-plugin-admin",
+      "medusa-plugin-other",
+      "medusa-plugin-email",
+      "medusa-plugin-customer",
+      "medusa-plugin-email-confirmation",
+      "email",
+      "email-confirmation",
+      "email confirmation"
+   ],
+   "scripts": {
+      "prepare": "cross-env NODE_ENV=production yarn run build",
+      "test": "jest --passWithNoTests src",
+      "build": "shx rm -rf ./dist && tsc",
+      "watch": "tsc --watch"
+   },
+   "dependencies": {
+      "medusa-interfaces": "^1.3.9",
+      "moment": "^2.30.1",
+      "zod": "^3.23.4"
+   },
+   "devDependencies": {
+      "@medusajs/admin": "^7.1.15",
+      "@medusajs/icons": "^1.0.0",
+      "@medusajs/medusa": "^1.20.8",
+      "@medusajs/medusa-cli": "^1.3.22",
+      "@medusajs/ui": "^3.0.1",
+      "@types/node": "^20.14.12",
+      "awilix": "^8.0.1",
+      "cors": "^2.8.5",
+      "cross-env": "^7.0.3",
+      "express": "^4.17.2",
+      "shx": "^0.3.4",
+      "typescript": "^5.2.2"
+   },
+   "peerDependenciesMeta": {
+      "medusa-react": {
+         "optional": true
+      }
+   },
+   "peerDependencies": {
+      "@medusajs/admin": "^7.0.0",
+      "@medusajs/icons": "^1.1.0",
+      "@medusajs/medusa": ">= 1.18.0 < 2",
+      "@medusajs/ui": "^1.0.0",
+      "medusa-react": "^9.0.4",
+      "react": "^18.0.0",
+      "react-dom": "^18.0.0"
+   }
+}
