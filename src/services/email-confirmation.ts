@@ -7,9 +7,15 @@ import {
   import CustomerRepository from "@medusajs/medusa/dist/repositories/customer";
   import { Lifetime } from "awilix";
 import moment from "moment";
-import { EmailConfirmationPluginOptions, PluginOptions } from "src/types";
-import { randomString } from "src/utils";
-import { APIResponse, ConfirmationStatus, StatusResponseViewModel } from "src/views";
+import { PluginOptions } from "../index";
+import { APIResponse, StatusResponseViewModel } from "../api/index"
+
+export interface EmailConfirmationPluginOptions {
+    /* max lifetime of the email confirmation token in days, empty for no limit */
+    token_max_lifetime_days?: number;
+    /* automatically initialize email confirmation through token on customer registration */
+    autoinit_on_register: boolean;
+  }
 
   export default class EmailConfirmationService extends TransactionBaseService {
     static LIFE_TIME = Lifetime.SCOPED;
@@ -36,9 +42,16 @@ import { APIResponse, ConfirmationStatus, StatusResponseViewModel } from "src/vi
         return this.options_;
     }
 
+    private randomString(length: number): string {
+        const chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        var result = '';
+        for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
+        return result;
+    }
+
     private async generateToken(customer: Customer): Promise<Customer> {
         let updateMetadata = customer.metadata;
-        const token = randomString(64);
+        const token = this.randomString(64);
         const generatedAt = new Date();
 
         updateMetadata.email_confirmation_token = token;

@@ -2,9 +2,8 @@ import {
     MedusaRequest, 
     MedusaResponse,
 } from "@medusajs/medusa"
-import EmailConfirmationService from "src/services/email-confirmation"
-import { APIResponse, EmailRequestViewModel } from "src/views"
-
+import EmailConfirmationService from "../../../../services/email-confirmation"
+import { APIResponse, EmailRequestViewModel } from "../../../index"
 export const POST = async (
     req: MedusaRequest<EmailRequestViewModel>,
     res: MedusaResponse<APIResponse<never>>

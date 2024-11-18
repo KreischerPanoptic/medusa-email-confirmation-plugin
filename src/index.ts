@@ -1,0 +1,1 @@
+export { EmailConfirmationPluginOptions as PluginOptions } from "./services/email-confirmation";

@@ -4,7 +4,7 @@ import {
     CustomerService,
     Customer,
   } from "@medusajs/medusa"
-import EmailConfirmationService from "src/services/email-confirmation";
+import EmailConfirmationService from "../../services/email-confirmation";
   
   export default async function handleCustomerCreated({ 
     data, eventName, container, pluginOptions, 

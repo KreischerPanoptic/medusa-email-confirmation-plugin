@@ -19,12 +19,15 @@
      "resolveJsonModule": true,
      "checkJs": false
    },
-   "include": ["src/"],
+   "include": ["src"],
    "exclude": [
-     "**/__tests__",
-     "**/__fixtures__",
-     "node_modules",
-     "build",
-     ".cache"
-   ]
+    "dist",
+    "build",
+    ".cache",
+    "tests",
+    "**/*.spec.js",
+    "**/*.spec.ts",
+    "node_modules",
+    ".eslintrc.js"
+  ]
 }
